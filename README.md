@@ -1,8 +1,10 @@
 # Dev-Vagrantfiles
 Protect your computer by using a VM and Vagrant boxes for development. This repo contains Vagrantfiles that I use to run VSCode and nodejs for my blog.
 
-# Basic commands
-Clone this repository and `cd` into it.
+# How to use
+Install Vagrant and VirtualBox: https://learn.hashicorp.com/tutorials/vagrant/getting-started-install?in=vagrant/getting-started
+
+Clone this repository and `cd` into a particular VM's directory that you want to spin up (e.g. `cd Fedora34-VSCodium`).
 
 To spin up a dev VM: `vagrant up` (currently I only made 1 Vagrantfile so far, for Fedora 34)
 
