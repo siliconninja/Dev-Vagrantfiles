@@ -71,7 +71,9 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     # Already installed in the box blog_xfce_f34.box
     #sudo dnf install -y @xfce-desktop-environment
-    sudo flatpak install flathub com.jetbrains.IntelliJ-IDEA-Community
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    sudo flatpak install -y flathub com.jetbrains.IntelliJ-IDEA-Community
+    sudo dnf install -y java-17-openjdk.x86_64
   SHELL
 
   # Always runs on each `vagrant up` (with run: "always")
@@ -79,7 +81,7 @@ Vagrant.configure("2") do |config|
     # I use tee -a rather than > (redirect) so I can confirm it
     # modifies .bashrc by looking in the terminal
     # (and I don't have to include a newline)
-    echo "startxfce4 &" | tee -a "/home/vagrant/.bashrc"
+    #echo "startxfce4 &" | tee -a "/home/vagrant/.bashrc"
     # no-op, just for demonstrating this block
     echo "This always runs on every boot!"
     # Must log in manually via username: vagrant, password: vagrant
